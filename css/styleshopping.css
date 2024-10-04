@@ -1,0 +1,136 @@
+/* General Styles */
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f9f9f9;
+  }
+  
+  header {
+    background-color: #ff4081;
+    padding: 20px;
+    text-align: center;
+    color: white;
+  }
+  
+  nav {
+    text-align: center;
+    background-color: #333;
+    padding: 10px 0;
+  }
+  
+  nav a {
+    color: white;
+    margin: 0 15px;
+    text-decoration: none;
+    font-size: 18px;
+  }
+  
+  nav a:hover {
+    color: #ff4081;
+  }
+  
+  /* Cart Table */
+  .cart-container {
+    width: 90%;
+    margin: 20px auto;
+  }
+  
+  .cart-table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: #f9dcc4;
+  }
+  
+  .cart-table th,
+  .cart-table td {
+    padding: 15px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+  }
+  
+  .cart-table th {
+    background-color: #181c1e;
+    color: white;
+  }
+  
+  .cart-table td img {
+    width: 80px;
+    height: auto;
+    margin-right: 10px;
+  }
+  
+  .cart-table td input {
+    width: 50px;
+    padding: 5px;
+  }
+  
+  .cart-table td button {
+    background-color: #181c1e;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+  }
+  
+  .cart-table td button:hover {
+    background-color: #0077b6;
+  }
+  
+  /* Cart Summary */
+  .cart-summary {
+    width: 90%;
+    margin: 20px auto;
+    text-align: center;
+    background-color: white;
+    padding: 20px;
+    border: 1px solid #ddd;
+  }
+  
+  .cart-summary h2 {
+    margin-top: 0;
+  }
+  
+  .cart-summary p {
+    font-size: 18px;
+    margin: 10px 0;
+  }
+  
+  .checkout-btn {
+    background-color: #181c1e;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .checkout-btn:hover {
+    background-color: #0077b6;
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .cart-container,
+    .cart-summary {
+      width: 100%;
+    }
+  
+    .cart-table th, 
+    .cart-table td {
+      font-size: 14px;
+      padding: 10px;
+    }
+  
+    .cart-table td img {
+      width: 60px;
+    }
+  
+    .cart-summary p {
+      font-size: 16px;
+    }
+  
+    nav a {
+      font-size: 16px;
+    }
+  }
+  
