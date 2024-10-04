@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" href="image/glamoras.jpg" type="image/jpeg"> <!-- Ganti dengan glamora.jpg -->
+  <title>Register Toko Online</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body, html {
+      height: 100%;
+      font-family: 'Arial', sans-serif;
+    }
+
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: linear-gradient(135deg, #0096c7, #f9dcc4); /* Sama dengan login */
+    }
+
+    .register-container {
+      background: rgba(255, 255, 255, 0.2); /* Transparan */
+      backdrop-filter: blur(10px); /* Blur efek sama dengan login */
+      padding: 2rem;
+      border-radius: 20px;
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+      max-width: 400px;
+      width: 100%;
+      text-align: center;
+    }
+
+    .register-container h2 {
+      color: #352f73;
+      margin-bottom: 1.5rem;
+      font-size: 2rem;
+    }
+
+    .logo {
+      margin-bottom: 1rem;
+    }
+
+    .input-container {
+      position: relative;
+      margin-bottom: 1.5rem;
+      width: 100%;
+    }
+
+    .input-container label {
+      position: absolute;
+      top: 50%;
+      left: 0;
+      transform: translateY(-50%);
+      color: #352f73;
+      pointer-events: none;
+      transition: 0.3s;
+    }
+
+    .input-container input {
+      width: 100%;
+      padding: 10px 0;
+      border: none;
+      border-bottom: 2px solid #282121; /* Hanya garis bawah */
+      background: transparent; /* Transparan */
+      color: #000; /* Teks warna putih */
+      font-size: 1rem;
+      outline: none;
+      transition: border-color 0.3s;
+    }
+
+    .input-container input:focus {
+      border-color: #a04d71;
+    }
+
+    .input-container input:focus + label,
+    .input-container input:not(:placeholder-shown) + label {
+      top: -10px;
+      font-size: 0.75rem;
+      color: #a04d71;
+    }
+
+    .register-btn {
+      width: 100%;
+      padding: 1rem;
+      background-color: #0077b6;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 1.2rem;
+      transition: background-color 0.3s;
+    }
+
+    .register-btn:hover {
+      background-color: #2b2123;
+    }
+
+    .login-link {
+      margin-top: 1rem;
+      color: #352f73;
+      font-size: 1rem;
+      display: block;
+      text-decoration: none;
+    }
+
+    .login-link:hover {
+      text-decoration: underline;
+    }
+
+    /* Responsif */
+    @media screen and (max-width: 768px) {
+      .register-container {
+        padding: 1.5rem;
+      }
+
+      .register-container h2 {
+        font-size: 1.75rem;
+      }
+    }
+
+    @media screen and (max-width: 480px) {
+      .register-container {
+        padding: 1rem;
+      }
+
+      .register-container h2 {
+        font-size: 1.5rem;
+      }
+
+      .register-btn {
+        font-size: 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="register-container">
+    <img src="image/glamora.jpg" alt="Logo" class="logo" style="width: 100px; height: auto;"> <!-- Logo -->
+    <h2>Register</h2>
+    <form id="registerForm" onsubmit="return handleRegister()">
+      <div class="input-container">
+        <input type="text" id="username" placeholder=" " required>
+        <label for="username">Username</label>
+      </div>
+      <div class="input-container">
+        <input type="password" id="password" placeholder=" " required>
+        <label for="password">Password</label>
+      </div>
+      <div class="input-container">
+        <input type="email" id="email" placeholder=" " required>
+        <label for="email">Email</label>
+      </div>
+      <button type="submit" class="register-btn">Register</button>
+    </form>
+
+    <a href="login.html" class="login-link">Sudah punya akun? Login di sini</a>
+  </div>
+
+  <script>
+    function handleRegister() {
+      alert("Registrasi berhasil!");
+      window.location.href = "login.html";
+      return false;
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login Toko Online</title>
+  <link rel="icon" href="image/glamoras.jpg" type="image/jpeg"> <!-- Tambahkan ini -->
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body, html {
+      height: 100%;
+      font-family: 'Arial', sans-serif;
+    }
+
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: linear-gradient(135deg, #0096c7, #f9dcc4); /* Linear gradient background */
+    }
+
+    .login-container {
+      background: rgba(255, 255, 255, 0.2); /* Transparan */
+      backdrop-filter: blur(10px); /* Efek blur */
+      padding: 2rem;
+      border-radius: 20px;
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+      max-width: 400px;
+      width: 100%;
+      text-align: center;
+    }
+
+    .login-container h2 {
+      color: #352f73;
+      margin-bottom: 1.5rem;
+      font-size: 2rem;
+    }
+
+    .logo {
+      margin-bottom: 1rem;
+    }
+
+    .input-container {
+      position: relative;
+      margin-bottom: 1.5rem;
+      width: 100%;
+    }
+
+    .input-container label {
+      position: absolute;
+      top: 50%;
+      left: 0;
+      transform: translateY(-50%);
+      color: #352f73;
+      pointer-events: none;
+      transition: 0.3s;
+      font-size: 1rem;
+      padding-left: 0.5rem;
+    }
+
+    .input-container input {
+      width: 100%;
+      padding: 1rem 0.5rem;
+      border: none;
+      border-bottom: 2px solid #282121;
+      background-color: transparent; /* Biar transparan */
+      color: #000;
+      font-size: 1rem;
+      outline: none;
+      transition: border-color 0.3s;
+    }
+
+    .input-container input:focus {
+      border-color: #a04d71; /* Warna garis bawah saat fokus */
+    }
+
+    .input-container input:focus + label,
+    .input-container input:not(:placeholder-shown) + label {
+      top: 0;
+      font-size: 0.75rem;
+      color: #a04d71;
+    }
+
+    .login-btn {
+      width: 100%;
+      padding: 1rem;
+      background-color: #0077b6;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 1.2rem;
+      transition: background-color 0.3s;
+    }
+
+    .login-btn:hover {
+      background-color: #2b2123;
+    }
+
+    /* Responsif */
+    @media screen and (max-width: 768px) {
+      .login-container {
+        padding: 1.5rem;
+        max-width: 350px;
+      }
+
+      .login-container h2 {
+        font-size: 1.75rem;
+      }
+    }
+
+    @media screen and (max-width: 480px) {
+      .login-container {
+        padding: 1rem;
+        max-width: 300px;
+      }
+
+      .login-container h2 {
+        font-size: 1.5rem;
+      }
+
+      .login-btn {
+        font-size: 1rem;
+      }
+    }
+
+    .register-container {
+      margin-top: 1.5rem;
+    }
+
+    .register-container p {
+      color: #352f73;
+    }
+
+    .google-btn {
+      width: 100%;
+      padding: 1rem;
+      background-color: #ffffff; /* Warna Google */
+      color: rgb(0, 0, 0);
+      border: none;
+      border-radius: 50px; /* Bikin oval */
+      cursor: pointer;
+      font-size: 1.2rem;
+      display: flex;
+     align-items: center;
+     justify-content: center;
+     transition: background-color 0.3s;
+     box-shadow: 0 5px 10px rgba(0, 0, 0, 0.15); /* Tambah shadow */
+    }
+
+    .google-btn img {
+      width: 20px;
+      margin-right: 10px; /* Ruang buat icon Google */
+    }
+
+    .google-btn:hover {
+      background-color: #0077b6; /* Warna lebih gelap saat hover */
+      color: #fff; /* Teks berubah warna jadi putih pas di hover */
+    }
+
+  </style>
+</head>
+<body>
+  <div class="login-container">
+    <img src="image/glamora.jpg" alt="Logo Glamora" class="logo" width="100"> <!-- Logo ditambahkan -->
+    <h2>Login</h2>
+    <form id="loginForm" onsubmit="return handleLogin()">
+      <div class="input-container">
+        <input type="text" id="username" placeholder=" " required>
+        <label for="username">Username</label>
+      </div>
+      <div class="input-container">
+        <input type="password" id="password" placeholder=" " required>
+        <label for="password">Password</label>
+      </div>
+      <button type="submit" class="login-btn">Login</button>
+    </form>
+
+    <div class="register-container">
+      <p>Belum punya akun? <a href="register.html">Daftar di sini</a></p>
+    </div>
+    
+    <div class="google-login">
+      <button class="google-btn">Login dengan Google</button>
+    </div>
+  </div>
+
+  <script>
+    function handleLogin() {
+      localStorage.setItem("isLoggedIn", true); // Simpan status login
+      window.location.href = "index.html"; // Arahkan ke halaman utama
+      return false; // Mencegah reload halaman
+    }
+  </script>
+</body>
+</html>

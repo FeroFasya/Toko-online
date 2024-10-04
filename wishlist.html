@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wishlist - Toko Online</title>
+    <link rel="icon" href="image/glamoras.jpg" type="image/jpeg">
+     <link rel="stylesheet" href="css/styleindex.css">
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #f9f9f9;
+        }
+
+        header {
+            text-align: center;
+            background-color: #6a1b29;
+            color: white;
+            padding: 20px 0;
+        }
+
+        .wishlist-item {
+            background-color: white;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+            transition: box-shadow 0.3s;
+        }
+
+        .wishlist-item:hover {
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .wishlist-item img {
+            max-width: 100%;
+            height: auto;
+            margin-bottom: 10px;
+            border-radius: 5px;
+        }
+
+        .wishlist-item button {
+            background-color: #6a1b29;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .wishlist-item button:hover {
+            background-color: #0077b6;
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 40px;
+            padding: 10px 0;
+            background-color: #6a1b29;
+            color: white;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>Wishlist Kamu</h1>
+    </header>
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="index.html">Glamora</a>
+        <div class="collapse navbar-collapse">
+            <ul class="navbar-nav">
+                <li class="nav-item"><a class="nav-link" href="baju.html">Baju</a></li>
+                <li class="nav-item"><a class="nav-link" href="sepatu.html">Sepatu</a></li>
+                <li class="nav-item"><a class="nav-link" href="tas.html">Tas</a></li>
+                <li class="nav-item"><a class="nav-link" href="semuaproduk.html">Semua Produk</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container mt-5">
+        <section id="wishlistItems" class="row">
+            <!-- Wishlist items akan muncul di sini -->
+        </section>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 Glamora. All rights reserved.</p>
+    </footer>
+
+    <script>
+        function loadWishlist() {
+            const wishlist = JSON.parse(localStorage.getItem('wishlist')) || [];
+            const wishlistSection = document.getElementById('wishlistItems');
+
+            if (wishlist.length === 0) {
+                wishlistSection.innerHTML = `<div class="col-12"><p class="text-center">Wishlist kamu kosong.</p></div>`;
+            } else {
+                wishlistSection.innerHTML = wishlist.map(item => `
+                    <div class="col-md-4">
+                        <div class="wishlist-item text-center p-3">
+                            <img src="${item.image}" alt="${item.title}">
+                            <h3>${item.title}</h3>
+                            <p>${item.price}</p>
+                            <button onclick="removeFromWishlist('${item.title}')">Hapus</button>
+                        </div>
+                    </div>
+                `).join('');
+            }
+        }
+
+        function removeFromWishlist(productTitle) {
+            let wishlist = JSON.parse(localStorage.getItem('wishlist')) || [];
+            wishlist = wishlist.filter(item => item.title !== productTitle);
+            localStorage.setItem('wishlist', JSON.stringify(wishlist));
+            loadWishlist(); // Refresh wishlist setelah produk dihapus
+        }
+
+        window.onload = loadWishlist;
+    </script>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+
+</html>
